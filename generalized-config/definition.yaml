@@ -1,0 +1,43 @@
+---
+apiVersion: apiextensions.crossplane.io/v1beta1
+kind: CompositeResourceDefinition
+metadata:
+  name: compositesqlinstances.database.example.org
+spec:
+  group: database.example.org
+  names:
+    kind: CompositeSQLInstance
+    plural: compositesqlinstances
+  claimNames:
+    kind: SQLInstance
+    plural: sqlinstances
+  connectionSecretKeys:
+    - username
+    - password
+    - endpoint
+    - port
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              parameters:
+                type: object
+                properties:
+                  # database storage in GB
+                  storageGB:
+                    type: integer
+                  # MYSQL_5_7 (default) or MYSQL_5_6. PostgreSQL instances: POSTGRES_9_6 (default) or POSTGRES_11 Beta
+                  sqlVersion:
+                    type: string
+                required:
+                  - storageGB
+                  - sqlVersion
+            required:
+              - parameters
