@@ -1,0 +1,15 @@
+apiVersion: database.example.org/v1alpha1
+kind: SQLInstance
+metadata:
+  name: test-mysql-db
+  namespace: crossplane-system
+spec:
+  parameters:
+    storageGB: 10
+    sqlVersion: MYSQL_5_7
+  compositionSelector:
+    matchLabels:
+      provider: gcp
+  writeConnectionSecretToRef:
+    namespace: crossplane-system
+    name: test-mysql-db-conn

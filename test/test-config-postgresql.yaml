@@ -1,0 +1,15 @@
+apiVersion: database.example.org/v1alpha1
+kind: SQLInstance
+metadata:
+  name: test-postgresql-db
+  namespace: crossplane-system
+spec:
+  parameters:
+    storageGB: 10
+    sqlVersion: POSTGRES_9_6
+  compositionSelector:
+    matchLabels:
+      provider: gcp
+  writeConnectionSecretToRef:
+    namespace: crossplane-system
+    name: test-postgresql-db-conn
