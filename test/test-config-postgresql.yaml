@@ -5,8 +5,8 @@ metadata:
   namespace: crossplane-system
 spec:
   parameters:
-    storageGB: 10
-    sqlVersion: PostgreSQL 9.6
+    storageGB: 15
+    sqlVersion: PostgreSQL 11
   compositionSelector:
     matchLabels:
       provider: gcp
