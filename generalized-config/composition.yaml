@@ -38,6 +38,13 @@ spec:
           toFieldPath: "spec.forProvider.settings.dataDiskSizeGb"
         - fromFieldPath: "spec.parameteres.sqlVersion"
           toFieldPath: "spec.forProvider.databaseVersion"
+          transforms:
+            - type: map
+              map:
+                MySQL 5.7: MYSQL_5_7
+                MySQL 5.6: MYSQL_5_6
+                PostgreSQL 9.6: POSTGRES_9_6
+                PostgreSQL 11: POSTGRES_11
       connectionDetails:
         - fromConnectionSecretKey: username
         - fromConnectionSecretKey: password
