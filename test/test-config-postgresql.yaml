@@ -6,7 +6,7 @@ metadata:
 spec:
   parameters:
     storageGB: 10
-    sqlVersion: POSTGRES_9_6
+    sqlVersion: PostgreSQL 9.6
   compositionSelector:
     matchLabels:
       provider: gcp

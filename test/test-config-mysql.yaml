@@ -6,7 +6,7 @@ metadata:
 spec:
   parameters:
     storageGB: 10
-    sqlVersion: MYSQL_5_7
+    sqlVersion: MySQL 5.7
   compositionSelector:
     matchLabels:
       provider: gcp
