@@ -5,37 +5,37 @@ Generalize Crossplane PostgreSQL configuration to enable MySQL as well
 ## Getting Started
 
 1. Follow Crossplane setup instructions: https://crossplane.io/docs/v0.14/getting-started/install-configure.html
-2. Setup Docker registry: https://crossplane.io/docs/v0.14/getting-started/package-infrastructure.html#build-and-push-the-configuration
-3. Build Configuration & Push:
+1. Setup Docker registry: https://crossplane.io/docs/v0.14/getting-started/package-infrastructure.html#build-and-push-the-configuration
+1. Build Configuration & Push:
 
-```bash
-cd generalized-config
+    ```bash
+    cd generalized-config
 
-kubectl crossplane build configuration
-kubectl crossplane push configuration ${REG}/generalized-sql:master
+    kubectl crossplane build configuration
+    kubectl crossplane push configuration ${REG}/generalized-sql:master
 
-cd ..
-```
+    cd ..
+    ```
 
-4. Install Configuration:
+1. Install Configuration:
 
-```bash
-kubectl crossplane install configuration ${REG}/generalized-sql:master
-```
+    ```bash
+    kubectl crossplane install configuration ${REG}/generalized-sql:master
+    ```
 
-5. Test Configuration with either SQL or PostgreSQL:
+1. Test Configuration with either SQL or PostgreSQL:
 
-```bash
+    ```bash
 
-kubectl apply -f test/test-config-mysql.yaml
+    kubectl apply -f test/test-config-mysql.yaml
 
-# or
+    # or
 
-kubectl apply -f test/test-config-postgresql.yaml
-```
+    kubectl apply -f test/test-config-postgresql.yaml
+    ```
 
-6. Watch it become ready:
+1. Watch it become ready:
 
-```bash
-kubectl get compositesqlinstance -w
-```
+    ```bash
+    kubectl get compositesqlinstance -w
+    ```
